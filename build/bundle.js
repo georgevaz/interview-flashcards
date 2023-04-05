@@ -53,6 +53,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./client/index.js":
+/*!*************************!*\
+  !*** ./client/index.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ \"./node_modules/react-dom/client.js\");\n/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles.scss */ \"./client/styles.scss\");\n/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App */ \"./client/App.jsx\");\n\n\n\n\nvar rootContainer = document.getElementById('root');\nvar root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(rootContainer);\nroot.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_App__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null));\n\n//# sourceURL=webpack://interview-flashcards/./client/index.js?");
+
+/***/ }),
+
 /***/ "./client/questions.js":
 /*!*****************************!*\
   !*** ./client/questions.js ***!
@@ -72,17 +83,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var zustand__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! zustand */ \"./node_modules/zustand/esm/index.mjs\");\n/* harmony import */ var zukeeper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! zukeeper */ \"./node_modules/zukeeper/index.js\");\n\n\nvar useCardStore = (0,zustand__WEBPACK_IMPORTED_MODULE_1__.create)((0,zukeeper__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(function (set) {\n  return {\n    currentCard: null,\n    nextCard: null,\n    setCards: function setCards(current, next) {\n      return set({\n        currentCard: current,\n        nextCard: next\n      });\n    },\n    atThreshold: false,\n    setThreshold: function setThreshold(bool) {\n      return set({\n        atThreshold: bool\n      });\n    }\n  };\n}));\nwindow.store = useCardStore;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useCardStore);\n\n//# sourceURL=webpack://interview-flashcards/./client/store/store.js?");
-
-/***/ }),
-
-/***/ "./index.js":
-/*!******************!*\
-  !*** ./index.js ***!
-  \******************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ \"./node_modules/react-dom/client.js\");\n/* harmony import */ var _client_styles_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./client/styles.scss */ \"./client/styles.scss\");\n/* harmony import */ var _client_App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./client/App */ \"./client/App.jsx\");\n\n\n\n\nvar rootContainer = document.getElementById('root');\nvar root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(rootContainer);\nroot.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_client_App__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null));\n\n//# sourceURL=webpack://interview-flashcards/./index.js?");
 
 /***/ }),
 
@@ -635,7 +635,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./index.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./client/index.js");
 /******/ 	
 /******/ })()
 ;
