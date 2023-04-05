@@ -1,24 +1,31 @@
 import React, { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 import Draggable from 'react-draggable';
-import Questions from '../questions'
+import useCardStore from '../store/store';
+import { useStore } from 'zustand';
 
+const RotationSpeed = .1;
 
-export const Card = () => {
+export const Card = (props) => {
     const [flipped, setFlip] = useState(false);
     const [rotation, setRotation] = useState(0)
+
+    const {
+        atThreshold,
+        setThreshold
+    } = useStore(useCardStore);
 
     const handleFlip = (e) => {
         setFlip(!flipped);
     }
 
     const handleRotate = (e, data) => {
-        let degrees = data.x < 0 ? Math.max(data.x * .25, -25) : Math.min(data.x * .25, 25);
-
+        let degrees = data.x < 0 ? Math.max(data.x * RotationSpeed, -25) : Math.min(data.x * RotationSpeed, 25);
         setRotation(degrees);
     }
 
-    const resetRotate = () => {
+    const handleStop = (e, data) => {
+        if(Math.abs(data.x) > 150) setThreshold(true);
         setRotation(0);
     }
 
@@ -27,8 +34,9 @@ export const Card = () => {
             <Draggable
             axis='x'
             position={{x: 0, y: 0}}
+            bounds={{left: -200, right: 200}}
             onDrag={handleRotate}
-            onStop={resetRotate}
+            onStop={handleStop}
             >
                 <div 
                 className='card' 
@@ -47,7 +55,7 @@ export const Card = () => {
                             onClick={handleFlip}
                             >
                                 <div className='card-inner'>
-                                    <h1>What is useRef()?</h1>
+                                    <h1>{props.frontText}</h1>
                                 </div>
                             </div>
                             <div 
@@ -55,9 +63,7 @@ export const Card = () => {
                             onClick={handleFlip}
                             >
                                 <div className='card-inner'>
-                                    <ul>
-                                    <li>I don't know</li>  
-                                    </ul>
+                                    <p>{props.backText}</p>
                                 </div>
                             </div>
                     </ReactCardFlip>

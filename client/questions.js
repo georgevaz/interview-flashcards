@@ -1,6 +1,11 @@
 const Questions = {
     'question' : 'answer',
-    ok: 3
+    'qufsdf' : 'afsgsgser',
+    'ok' : 'yo',
+    '4' : 'a4',
+    '5' : '5',
+    '6' : '6',
+    '7' : '7'
 }
 
 export default Questions;

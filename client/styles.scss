@@ -11,12 +11,15 @@
     background-color: red;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    flex-basis: 70%;
     margin: auto;
+    height: 50vh;
+    width: 50vw;
 }
 
 .card {
+    position: absolute;
     width: 250px;
     height: 300px;
     margin: 10px;
