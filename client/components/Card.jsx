@@ -16,7 +16,7 @@ export const Card = (props) => {
     } = useStore(useCardStore);
 
     const handleFlip = (e) => {
-        setFlip(!flipped);
+        if(!atThreshold) setFlip(!flipped);
     }
 
     const handleRotate = (e, data) => {
