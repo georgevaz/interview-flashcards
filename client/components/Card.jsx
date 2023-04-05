@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 import Draggable from 'react-draggable';
 import useCardStore from '../store/store';
@@ -9,11 +9,12 @@ const RotationSpeed = .1;
 export const Card = (props) => {
     const [flipped, setFlip] = useState(false);
     const [rotation, setRotation] = useState(0);
+    const [atEdge, setAtEdge] = useState(false);
 
-    const {
-        atThreshold,
-        setThreshold
-    } = useStore(useCardStore);
+    // const {
+    //     atThreshold,
+    //     setThreshold
+    // } = useStore(useCardStore);
 
     const handleFlip = (e) => {
         setFlip(!flipped);
@@ -29,9 +30,20 @@ export const Card = (props) => {
     }
 
     const handleStop = (e, data) => {
-        if(Math.abs(data.x) > 150) setThreshold(true);
+        // if(Math.abs(data.x) > 150) setThreshold(true);
+        if(Math.abs(data.x) > 150) setAtEdge(true);
         setRotation(0);
     }
+
+    // useEffect(() => {
+    //     if(atThreshold) console.log('at threshold')
+    // }, [atThreshold]);
+
+    useEffect(() => {
+        if(atEdge) {
+            setAtEdge(false);
+        }
+    }, [atEdge]);
 
     return (
         <> 
@@ -52,7 +64,7 @@ export const Card = (props) => {
                     containerStyle={{
                         height: '100%', 
                         width: '100%',
-                        transform: `rotate(${rotation}deg)`
+                        transform: `rotate(${rotation}deg)` 
                     }}
                     >
                             <div 
