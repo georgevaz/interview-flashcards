@@ -8,7 +8,7 @@ const RotationSpeed = .1;
 
 export const Card = (props) => {
     const [flipped, setFlip] = useState(false);
-    const [rotation, setRotation] = useState(0)
+    const [rotation, setRotation] = useState(0);
 
     const {
         atThreshold,
@@ -16,12 +16,16 @@ export const Card = (props) => {
     } = useStore(useCardStore);
 
     const handleFlip = (e) => {
-        if(!atThreshold) setFlip(!flipped);
+        setFlip(!flipped);
     }
 
     const handleRotate = (e, data) => {
         let degrees = data.x < 0 ? Math.max(data.x * RotationSpeed, -25) : Math.min(data.x * RotationSpeed, 25);
         setRotation(degrees);
+    }
+
+    const handleStart = () => {
+        
     }
 
     const handleStop = (e, data) => {
@@ -35,6 +39,7 @@ export const Card = (props) => {
             axis='x'
             position={{x: 0, y: 0}}
             bounds={{left: -200, right: 200}}
+            onStart={handleStart}
             onDrag={handleRotate}
             onStop={handleStop}
             >
