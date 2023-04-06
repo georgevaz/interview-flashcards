@@ -5,6 +5,16 @@ import { useStore } from 'zustand';
 import Questions from '../questions'
 
 const questionsKeys = Object.keys(Questions);
+const cards = [];
+questionsKeys.forEach((x, i) => {
+    cards.push(<Card 
+        key={i}
+        id={i}
+        frontText={x}
+        backText={Questions[x]}
+        offset={Math.floor(Math.random() * 3)}
+        />)
+})
 
 export const CardContainer = () => {
     const {
@@ -12,18 +22,12 @@ export const CardContainer = () => {
         setThreshold
     } = useStore(useCardStore);
 
-    const cards = [];
-    questionsKeys.forEach((x, i) => {
-        cards.push(<Card 
-            key={i}
-            id={i}
-            frontText={x}
-            backText={Questions[x]}
-            />)
-    })
 
     useEffect(() => {
-
+        if(atThreshold) {
+            setThreshold(false)
+            cards.unshift(cards.pop());
+        }
     }, [atThreshold])
 
     return (

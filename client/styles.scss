@@ -35,6 +35,7 @@
     width: 100%;
     height: 100%;
     text-align: center;
+    border: 1px black solid;
 }
 
 .card-front{
@@ -49,7 +50,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
     width: 95%;
     height: 95%;
 }

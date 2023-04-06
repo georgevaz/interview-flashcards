@@ -9,14 +9,12 @@ const RotationSpeed = .1;
 export const Card = (props) => {
     const [flipped, setFlip] = useState(false);
     const [rotation, setRotation] = useState(0);
-    const [atEdge, setAtEdge] = useState(false);
+    const [sentBack, setSentBack] = useState(false);
+    const {
+        setThreshold
+    } = useStore(useCardStore);
 
-    // const {
-    //     atThreshold,
-    //     setThreshold
-    // } = useStore(useCardStore);
-
-    const handleFlip = (e) => {
+    const handleFlip = () => {
         setFlip(!flipped);
     }
 
@@ -25,33 +23,27 @@ export const Card = (props) => {
         setRotation(degrees);
     }
 
-    const handleStart = () => {
-        
-    }
-
     const handleStop = (e, data) => {
-        // if(Math.abs(data.x) > 150) setThreshold(true);
-        if(Math.abs(data.x) > 150) setAtEdge(true);
+        if(Math.abs(data.x) > 150) setSentBack(true);
         setRotation(0);
     }
 
-    // useEffect(() => {
-    //     if(atThreshold) console.log('at threshold')
-    // }, [atThreshold]);
 
     useEffect(() => {
-        if(atEdge) {
-            setAtEdge(false);
+        if(sentBack) {
+            setThreshold(true);
+            setSentBack(false);
         }
-    }, [atEdge]);
+        setFlip(false);
+    }, [sentBack]);
 
     return (
         <> 
             <Draggable
             axis='x'
             position={{x: 0, y: 0}}
+            positionOffset={{x: `${props.offset}%`, y: `${props.offset}%`}}
             bounds={{left: -200, right: 200}}
-            onStart={handleStart}
             onDrag={handleRotate}
             onStop={handleStop}
             >
