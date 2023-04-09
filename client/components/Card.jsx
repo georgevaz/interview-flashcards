@@ -69,7 +69,7 @@ export const Card = (props) => {
                         onClick={handleFlip}
                         >
                             <div className='card-inner'>
-                                <h1>{props.frontText}</h1>
+                                <h3>{props.frontText}</h3>
                             </div>
                         </div>
                         <div 
