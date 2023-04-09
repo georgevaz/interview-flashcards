@@ -6,6 +6,8 @@ import Questions from '../questions';
 
 const questionsKeys = Object.keys(Questions);
 const cards = [];
+const maxOffset = 8;
+
 questionsKeys.forEach((x, i) => {
     cards.push(
             <Card 
@@ -13,7 +15,7 @@ questionsKeys.forEach((x, i) => {
             id={i}
             frontText={x}
             backText={Questions[x]}
-            offset={Math.floor(Math.random() * 3)}
+            offset={Math.floor(Math.random() * maxOffset)}
             />
         )
 })

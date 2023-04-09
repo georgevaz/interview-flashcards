@@ -1,19 +1,28 @@
+body{
+    background-color: #425a52;
+}
+
 .main-container {
-    background-color: beige;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: auto;
     height: 98vh;
 }
+
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50vw;
+}
+
 .card-container {
-    background-color: red;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin: auto;
     height: 50vh;
     width: 50vw;
 }
@@ -23,10 +32,13 @@
     width: 250px;
     height: 300px;
     margin: 10px;
+    cursor: pointer;
 }
 
 .card-front, .card-back{
     display: flex;
+    border-radius: 1rem;
+    box-shadow: 10px 2px 10px rgba(#000, 0.05);
     justify-content: center;
     align-items: center;
     background-color: #bbb;
@@ -35,18 +47,10 @@
     width: 100%;
     height: 100%;
     text-align: center;
-    border: 1px black solid;
-}
-
-.card-front{
-}
-
-.card-back{
-
+    border: 4px rgba(#000, 0.25) solid;
 }
 
 .card-inner {
-    background-color: aqua;
     display: flex;
     justify-content: center;
     align-items: center;
