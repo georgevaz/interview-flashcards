@@ -1,4 +1,4 @@
-const Questions = {
+const ReactQuestions = {
     "What is React?": "A JavaScript library for building user interfaces",
     "What are the key features of React?": "JSX, Virtual DOM, One-way data binding, Component-based architecture",
     "What is JSX?": "A syntax extension for JavaScript that allows you to write HTML-like code in your JS code",
@@ -19,4 +19,4 @@ const Questions = {
     "What is the significance of componentWillUnmount() method in React?": "It is called just before a component is unmounted from the DOM, and is commonly used for cleanup operations and event listener removal"
 }
 
-export default Questions;
+export default ReactQuestions;

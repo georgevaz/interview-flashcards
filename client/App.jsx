@@ -4,7 +4,7 @@ import { MainContainer } from './components/MainContainer';
 const App = () => {
     return (
         <>
-        <MainContainer />
+            <MainContainer />
         </>
     )
 }
