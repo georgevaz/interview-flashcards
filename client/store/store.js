@@ -6,6 +6,11 @@ const useCardStore = create(zukeeper((set) => ({
     atThreshold: false,
     setThreshold: (bool) => set({ 
         atThreshold: bool 
+    }),
+
+    questionBatch: 'react',
+    setQuestionBatch: (tech) => set({
+        questionBatch: tech
     })
 })));
 

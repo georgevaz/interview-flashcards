@@ -1,5 +1,7 @@
+$green: #425a52;
+
 body{
-    background-color: #425a52;
+    background-color: $green;
 }
 
 .main-container {
@@ -56,4 +58,35 @@ body{
     align-items: center;
     width: 95%;
     height: 95%;
+}
+
+.MuiOutlinedInput-notchedOutline {
+    border-color: rgba(#000, 0.25) !important;
+}
+  
+.Mui-focused .MuiOutlinedInput-notchedOutline{
+    border-color: black !important;
+}
+
+.MuiInputLabel-root {
+    color: rgba(#000, 0.35) !important;
+}
+
+.MuiInputLabel-root.Mui-focused {
+  color: black !important;
+}
+
+.MuiPopover-root .MuiMenu-paper {
+    background-color: rgba($green, 0.99);
+  }
+
+.MuiMenuItem-root {
+    background-color: rgba(#000, 0.05) !important;
+}
+
+.MuiMenuItem-root.Mui-selected {
+    background-color: rgba(#000, 0.15) !important;
+}
+.MuiMenuItem-root:hover {
+    background-color: rgba(#000, 0.1) !important;
 }
