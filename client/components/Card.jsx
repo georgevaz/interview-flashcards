@@ -18,19 +18,19 @@ export const Card = (props) => {
 
     const handleFlip = () => {
         setFlip(!flipped);
-    }
+    };
 
     const handleRotate = (e, data) => {
         let degrees = data.x < 0 ? Math.max(data.x * RotationSpeed, -25) : Math.min(data.x * RotationSpeed, 25);
         setRotation(degrees);
         setTransition(0);
-    }
+    };
 
     const handleStop = (e, data) => {
         if(Math.abs(data.x) > 150) setSentBack(true);
         setRotation(0);
         setTransition(1);
-    }
+    };
 
 
     useEffect(() => {
@@ -84,5 +84,5 @@ export const Card = (props) => {
                 </div>
             </Draggable>
         </>
-    )
-}
+    );
+};

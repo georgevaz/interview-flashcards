@@ -1,4 +1,4 @@
-const ReactQuestions = {
+export const ReactQuestions = {
     "What is React?": "A JavaScript library for building user interfaces",
     "What are the key features of React?": "JSX, Virtual DOM, One-way data binding, Component-based architecture",
     "What is JSX?": "A syntax extension for JavaScript that allows you to write HTML-like code in your JS code",
@@ -17,6 +17,16 @@ const ReactQuestions = {
     "What is the significance of componentDidMount() method in React?": "It is called once, immediately after a component is mounted to the DOM, and is commonly used for data fetching and other setup operations",
     "What is the significance of componentDidUpdate() method in React?": "It is called after a component is updated and the changes have been flushed to the DOM, and is commonly used for updating the component's state or making additional data requests",
     "What is the significance of componentWillUnmount() method in React?": "It is called just before a component is unmounted from the DOM, and is commonly used for cleanup operations and event listener removal"
-}
+};
 
-export default ReactQuestions;
+export const ReduxQuestions = {
+    "What is Redux?": "who knows",
+};
+
+export const NodeQuestions = {
+    "What is Node?": "no idea",
+};
+
+export const ExpressQuestions = {
+    "What is express?": "blah",
+};

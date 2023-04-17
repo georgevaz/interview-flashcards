@@ -1,20 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import useCardStore from '../store/store';
 import { useStore } from 'zustand';
+import * as Questions from '../questions';
 
 export const DropDownContainer = () => {
     const {
         questionBatch,
-        setQuestionBatch
+        setQuestionBatch,
+        setChangeBatch,
     } = useStore(useCardStore);
-
+    
     const handleChange = (e) => {
         setQuestionBatch(e.target.value);
-        console.log(questionBatch);
+        setChangeBatch(true);
+    };
+    
+    const items = [];
+    for (const x in Questions) {
+        let text = x.replace('Questions', '')
+        items.push(
+            <MenuItem 
+            value={x}
+            key={x}
+            >{text}</MenuItem>
+        );
     };
 
     return (
@@ -27,13 +40,10 @@ export const DropDownContainer = () => {
                     onChange={handleChange}
                     label='Technology'
                     >
-                        <MenuItem value={'react'}>React</MenuItem>
-                        <MenuItem value={'redux'}>Redux</MenuItem>
-                        <MenuItem value={'node'}>Node</MenuItem>
-                        <MenuItem value={'express'}>Express</MenuItem>
+                        { items }
                     </Select>
                 </FormControl>
             </div>
         </>
-    )
+    );
 };
