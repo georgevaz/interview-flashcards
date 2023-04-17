@@ -7,5 +7,5 @@ const rootContainer = document.getElementById('root');
 const root = createRoot(rootContainer);
 
 root.render(
-    <App />
+  <App />
 );
