@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://georgevaz.github.io/",
+  "homepage": "https://georgevaz.github.io/interview-flashcards",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --hot --progress --open",
