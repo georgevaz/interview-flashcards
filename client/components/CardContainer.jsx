@@ -27,21 +27,6 @@ function shuffle(array) {
   return array;
 };
 
-let questionsKeys = shuffle(Object.keys(Questions.ReactQuestions));
-let cards = [];
-
-questionsKeys.forEach((x, i) => {
-  cards.push(
-    <Card
-      key={x}
-      id={i}
-      frontText={x}
-      backText={Questions.ReactQuestions[x]}
-      offset={Math.floor(Math.random() * maxOffset)}
-    />
-  );
-});
-
 export const CardContainer = () => {
   const {
     atThreshold,
@@ -51,20 +36,39 @@ export const CardContainer = () => {
     setChangeBatch
   } = useStore(useCardStore);
 
+  const [cards, setCards] = useState([]);
+
+  const updateStarredQuestion = (isStarred, questionText, answerText) => {
+    if (isStarred) {
+      Questions.StarredQuestions[questionText] = answerText;
+    } else {
+      delete Questions.StarredQuestions[questionText];
+    }
+
+    if (questionBatch === 'StarredQuestions') {
+      populateCards(questionBatch);
+    }
+  }
+
   const populateCards = tech => {
-    questionsKeys = shuffle(Object.keys(Questions[tech]));
-    cards = [];
-    questionsKeys.forEach((x, i) => {
-      cards.push(
-        <Card
-          key={i}
-          id={i}
-          frontText={x}
-          backText={Questions[tech][x]}
-          offset={Math.floor(Math.random() * maxOffset)}
-        />
-      );
-    });
+    const questionsKeys = shuffle(Object.keys(Questions[tech]));
+    setCards(
+      questionsKeys.map((questionText, i) => {
+        const answerText = Questions[tech][questionText];
+
+        return (
+          <Card
+            key={questionText}
+            id={i}
+            frontText={questionText}
+            backText={answerText}
+            offset={Math.floor(Math.random() * maxOffset)}
+            updateStarredQuestion={(isStarred) => updateStarredQuestion(isStarred, questionText, answerText)}
+            isStarred={!!Questions.StarredQuestions[questionText]}
+          />
+        );
+      })
+    );
   };
 
   useEffect(() => {
@@ -77,6 +81,10 @@ export const CardContainer = () => {
       setChangeBatch(false);
     };
   }, [atThreshold, changeBatch]);
+
+  useEffect(() => {
+    populateCards(questionBatch);
+  }, [questionBatch]);
 
   return (
     <>
