@@ -77,8 +77,7 @@ export const Card = (props) => {
               onClick={handleFlip}
             >
               <div
-                className="star"
-                style={{color: starred ? 'yellow' : 'white'}}
+                className={`star ${starred && 'selected'}`}
                 onClick={handleStarred}
               >
                 {'\u2605'}

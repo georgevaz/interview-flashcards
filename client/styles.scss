@@ -65,14 +65,27 @@ body {
 }
 
 .star {
+  color: yellow;
   font-size: 24px;
   position: absolute;
   right: 12px;
   top: 12px;
 
+  &.selected:hover {
+    padding-right: 200px;
+    opacity: .1;
+    transition: opacity 1.8s, padding-right 1.2s ease-in;
+  }
+}
+
+.star:not(.selected) {
+  color: white;
+
   &:hover {
-    opacity: .5;
-    transition: .8s ease-out;
+    font-size: 2400px;
+    right: -1000px;
+    top: -1600px;
+    transition: font-size 1s ease-in, right 1s ease-in, top 1s ease-in;
   }
 }
 
