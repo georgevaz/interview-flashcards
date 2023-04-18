@@ -11,6 +11,7 @@ export const Card = (props) => {
   const [rotation, setRotation] = useState(0);
   const [transition, setTransition] = useState(1);
   const [sentBack, setSentBack] = useState(false);
+  const [starred, setStarred] = useState(props.isStarred);
 
   const {
     setThreshold
@@ -24,6 +25,13 @@ export const Card = (props) => {
     let degrees = data.x < 0 ? Math.max(data.x * RotationSpeed, -25) : Math.min(data.x * RotationSpeed, 25);
     setRotation(degrees);
     setTransition(0);
+  };
+
+  const handleStarred = (e) => {
+    e.stopPropagation();
+
+    props.updateStarredQuestion(!starred)
+    setStarred(!starred);
   };
 
   const handleStop = (e, data) => {
@@ -68,6 +76,13 @@ export const Card = (props) => {
               className='card-front'
               onClick={handleFlip}
             >
+              <div
+                className="star"
+                style={{color: starred ? 'yellow' : 'white'}}
+                onClick={handleStarred}
+              >
+                {'\u2605'}
+              </div>
               <div className='card-inner'>
                 <h3>{props.frontText}</h3>
               </div>

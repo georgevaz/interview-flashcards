@@ -70,4 +70,6 @@ export const ExpressQuestions = {
   "What is Express.js' app.set() method used for?": "The app.set() method in Express.js is used to set configuration variables in the Express application.",
   "What is the difference between a router and an app in Express.js?": "In Express.js, a router is a subset of an app that handles a specific set of routes, while an app handles all routes for an application.",
   "What is body-parser middleware in Express.js used for?": "The body-parser middleware in Express.js is used to parse the body of incoming HTTP requests and make it available in the req.body object."
-};  
+};
+
+export const StarredQuestions = {};
